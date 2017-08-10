@@ -1,0 +1,17 @@
+- hosts: localhost
+  connection: local
+  vars_prompt:
+    - name: openconnect_vpn_group
+      prompt: "provide VPN group"
+      private: no
+   
+    - name: openconnect_vpn_user
+      prompt: "provide VPN user"
+      private: no
+
+    - name: openconnect_vpn_url
+      prompt: "provide anyconnect vpn URL"
+      private: no
+  roles:
+  - { role: openconnect }
+

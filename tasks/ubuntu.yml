@@ -1,0 +1,25 @@
+---
+
+- name: give credits
+  debug: 
+    msg: "this was inspired from http://www.socsci.uci.edu/~jstern/uci_vpn_ubuntu/ubuntu-openconnect-uci-instructions.html"
+
+- name: install packages
+  package:
+    name: "{{ item }}"
+    state: "installed"
+  with_items: 
+  - openconnect
+  - lib32ncurses5
+  - lib32tinfo5
+  - lib32z1
+  - libc6-i386
+  - libpkcs11-helper1
+  - openvpn
+  - vpnc-scripts
+
+- name: install script binary
+  template:
+    src: "{{ openconnect_script_template }}"
+    dest: "{{ openconnect_script_dest }}"
+    mode: 0755

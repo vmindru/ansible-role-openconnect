@@ -1,0 +1,15 @@
+#!/bin/bash
+# This script adapted from David Schneider's great page on github at
+#    https://github.com/dnschneid/crouton/wiki/Using-Cisco-AnyConnect-VPN-with-openconnect
+# and with help from OIT's Linux OpenConnect instructions at
+#    http://www.oit.uci.edu/kb/vpn-linux/
+
+VPNGRP={{ openconnect_vpn_group }}
+VPNUSER={{ openconnect_vpn_user }}
+VPNURL={{ openconnect_vpn_url }}
+VPNSCRIPT={{ openconnect_vpnc_script }}
+
+sudo openvpn --mktun --dev tun1 && \
+sudo ifconfig tun1 up && \
+sudo /usr/sbin/openconnect -s $VPNSCRIPT $VPNURL --user=$VPNUSER --authgroup=$VPNGRP --interface=tun1
+sudo ifconfig tun1 down

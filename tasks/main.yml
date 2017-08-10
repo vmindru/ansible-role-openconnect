@@ -1,0 +1,12 @@
+---
+# tasks file for openconnect
+#
+
+- name: Run Fedora 
+  include: fedora.yml
+  when: ansible_distribution == 'Fedora'
+
+- name: Run Ubuntu.yml
+  include: ubuntu.yml
+  when: ansible_distribution == 'Ubuntu'
+

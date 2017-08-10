@@ -1,0 +1,16 @@
+---
+# defaults file for openconnect
+openconnect_packages:
+  - openconnect 
+  - openvpn
+  - vpnc-scripts
+
+openconnect_script_template: "vpn-client.sh.j2"
+openconnect_script_name: "vpn_connect"
+openconnect_script_dest: "/usr/bin/{{ openconnect_script_name }}"
+openconnect_vpn_group: "none"
+openconnect_vpn_user: "none"
+openconnect_vpn_url: "none"
+openconnect_vpnc_script: "/etc/vpnc/vpnc-script" #this is default value for RHEL boxes, might need adjustments on playbook level for debian
+
+

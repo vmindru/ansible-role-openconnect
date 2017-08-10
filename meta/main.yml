@@ -1,0 +1,8 @@
+galaxy_info:
+  author: Veaceslav Mindru
+  description: configure openconnect client ( compatile with ciscon anyconnect )
+  company: Rocket Fuel Inc
+  license: GPLv2
+  min_ansible_version: 2.1
+  galaxy_tags: []
+dependencies: []
