@@ -2,6 +2,31 @@ openconnect
 =========
 
 Configure CLI openconnect client with open-vpn
+After playbook execution you can connect to VPN simply running vpn_connect or the binary you provided in openconnect_script_name
+
+e.g.
+
+    [vmindru@zetor ~]$ vpn_connect
+    Thu Aug 10 13:37:50 2017 TUN/TAP device tun1 opened
+    Thu Aug 10 13:37:50 2017 Persist state set to: ON
+    POST https://XXXXXXXXXXXXXX.com
+    Connected to 001.000.000.000:443
+    SSL negotiation with XXXXXXXXXXXXXXXX.com
+    Connected to HTTPS on XXXXXXXXXXXXXXXX.com
+    XML POST enabled
+    Please enter your username and password.
+    POST XXXXXXXXXXXXXXXX.com
+    XML POST enabled
+    Please enter your username and password.
+    Password:
+    POST https://XXXXXXXXXXXXXXXX.com
+    Got CONNECT response: HTTP/1.1 200 OK
+    CSTP connected. DPD 30, Keepalive 20
+    Connected as 172.16.0.228, using SSL
+    Established DTLS connection (using GnuTLS). 
+
+
+
 
 Requirements
 ------------
