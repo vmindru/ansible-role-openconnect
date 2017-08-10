@@ -22,12 +22,35 @@ Role Variables
 Example Playbook
 ----------------
 
-[vmindru@zetor openconnect]$ ansible-playbook -i localhost, demo_playbook.yml  -c local -b -K                                                                                                                      
-SUDO password:                                                                                                                                                                                                     
-provide VPN group: RocketFuel                                                                                                                                                                                      
-provide VPN user: vmindru                                                                                                                                                                                          
-provide anyconnect vpn URL: https://some_fqdn           
-[vmindru@zetor openconnect]$
+you can use the playbook provided with the role 
+
+    [vmindru@zetor openconnect]$ ansible-playbook -i localhost, demo_playbook.yml  -c local -b -K                                                                                                                      
+    SUDO password:                                                                                                                                                                                                     
+    provide VPN group: RocketFuel                                                                                                                                                                                      
+    provide VPN user: vmindru                                                                                                                                                                                          
+    provide anyconnect vpn URL: https://some_fqdn           
+    [vmindru@zetor openconnect]$
+
+or create your own similar playbook
+
+		- hosts: localhost
+	  connection: local
+	  vars_prompt:
+	    - name: openconnect_vpn_group
+	      prompt: "provide VPN group"
+	      private: no
+	
+	    - name: openconnect_vpn_user
+	      prompt: "provide VPN user"
+	      private: no
+	
+	    - name: openconnect_vpn_url
+	      prompt: "provide anyconnect vpn URL"
+	      private: no
+	  roles:
+	  - { role: openconnect }
+
+
 
 License
 -------
